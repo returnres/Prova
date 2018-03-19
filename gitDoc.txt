@@ -1,1 +1,62 @@
-ciao rob
+$ cat .gitignore
+*.[oa]
+*~
+
+$ git clone nomeutente@https://github.com/returnres/Prova.git //per scaricarsi repository esistente in locale
+
+oppure
+
+
+$creo in remote repository "Prova"
+In locale creao cartella vuota Prova e mi sposto in questa cartella
+
+$ git init //crea rep e mette git nella cartella
+$ git status   
+
+metto un file nella cartella //adesso è UNTRACKED
+$ git add Nuovo\ documento\ di\ testo.txt //sposta file dalla working rdir in STAGE (index) 
+$ git commit -m "prova" //sposta nella HEAD
+$ git commit --amend // se dimentichi di aggiungere file o sbagli commit fai questo e sovrasciverà primo
+
+$ git log
+$ git diff Nuovo\ documento\ di\ testo.txt   //vede modifiche ai file nella cartella
+$ git diff source target
+$ git reset HEAD nomefile  //unstage
+
+$ git remote -v //url associate
+roberto_2@Terminator MINGW64 ~/Documents/PROGETTI/Prova (master)
+$ git remote add Prova https://github.com/returnres/Prova.git
+$ git fetch nomecartella
+$ git remote show nomecartella
+$ git fetch momecartella
+$ git push -u momecartella master/branch
+$ git pull
+$ git remote rename MyWP mW // rinomina
+$ git remote rm mW //cancella
+
+$ git tag -a 1.0.0.0 -m "First" //definisce tag
+$ git tag //elenca tag
+$ git show 1.0.0.0
+
+$ git branch newbranch
+$ git checkout newbranch
+$ git checkout -b newbranch //oppure un solo comando
+$ git commit -a -m "modify pippo"
+$ git checkout master
+$ git merge newbranch
+$ git branch -d newbranch //elimono branch
+
+git checkout -- <nomedelfile>
+questo rimpiazza le modifiche nell'albero di lavoro con l'ultimo contenuto presente in HEAD. I cambiamenti fatti ed aggiunti all'index, così come i nuovi files, verranno mantenuti.
+
+Se vuoi in alternctiva eliminare tutti i cambiamenti e commits fatti in locale, recupera l'ultima versione dal server e fai puntare il tuo master branch a quella versione in questo modo
+git fetch origin
+git reset --hard origin/master
+
+git reset -- file rimuove i file dallo stage; ovvero copia i file dell'ultimo commit nello stage. Utilizza questo comando per annullare un git add file. Puoi anche utilizzare git reset per rimuovere tutto dallo stage.
+
+$ git config --global alias.st status //alias serve per creare macro adesso posso usare git st per avre lo statusroberto_2@Terminator MINGW64 ~
+$ git config --global user.name "j0n"
+
+roberto_2@Terminator MINGW64 ~
+$ git config --list
